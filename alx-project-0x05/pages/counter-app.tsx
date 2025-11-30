@@ -1,10 +1,8 @@
-import { useState, type FC } from "react";
+import { type FC } from "react";
+import { useCount } from "@/context/CountContext";
 
 const CounterApp: FC = () => {
-  const [count, setCount] = useState<number>(0);
-
-  const increment = () => setCount((prev: number) => prev + 1);
-  const decrement = () => setCount((prev: number) => (prev > 0 ? prev - 1 : 0));
+  const { count, increment, decrement } = useCount();
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-yellow-400 to-pink-500 flex flex-col justify-center items-center text-white">
